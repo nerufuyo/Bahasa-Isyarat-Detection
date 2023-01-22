@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- my style -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!--my responsive-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <!--logo tittle -->
+    <link rel="icon" href="{{ url_for('static', filename='images/small logo icon.png') }}" type="image/icon">
+
+    <title>BISA CAKAP - Terjemahkan Bahasa Isyarat</title>
+  </head>
+  <body>
+    
+   <!-- navigation -->
+   <nav class="sticky top-0 flex flex-row bg-white px-[28rem] justify-between items-center z-50">
+     <a class="flex flex-row items-center" href="#">
+      <img src="{{ url_for('static', filename='images/small logo icon.png') }}" alt="" width="32">
+      <span class="text-white px-2 font-bold text-lg text-[#0081C9]">BISA CAKAP</span>
+    </a>
+    <ul class="flex flex-row">
+      <li class="p-2 hover:bg-[#E3F6FF]">
+        <a class="text-black text-md" href="#hero">Beranda</a>
+      </li>
+      <li class="p-2 hover:bg-[#E3F6FF]">
+        <a class="text-black text-md" href="#layanan">Fitur</a>
+      </li>
+      <li class="p-2 hover:bg-[#E3F6FF]">
+        <a class="text-black text-md" href="#informasi">Layanan</a>
+      </li>
+      <li class="p-2 hover:bg-[#E3F6FF]">
+        <a class="text-black text-md" href="#tentang">Tentang</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!--Hero Section-->
+  <section id="hero" class="flex flex-row px-[28rem] py-10 items-center justify-between bg-[#0081C9]">
+    <div class="flex flex-col gap-y-3 w-1/2">
+      <span class="font-semibold text-white opacity-90 tracking-widest text-lg">BISA CAKAP WEBSITE</span>
+      <h1 class="text-[#FFEA20] text-6xl font-bold">Membantu  Mengenal  Informasi Bahasa Isyarat</h1>
+      <p class="text-white text-lg">website ini hadir untuk membantu kamu berlatih dan lebih mengenal tentang macam-macam bahasa isyarat berdasarkan kamus Sistem Isyarat Bahasa Indonesia (SIBI).</p>
+    </div>
+    <div class="flex flex-col w-1/2 items-center">
+      <div class="absolute top-0 right-[44rem] w-[8rem] h-[8rem] bg-[#FFEA20] rounded-full z-10"></div>
+      <div class="absolute right-[28rem] w-[20rem] h-[20rem] bg-[#FFEA20] rounded-full z-10"></div>
+      <img src="{{ url_for('static', filename='images/hero banner.png') }}" alt="Hero Image" class="w-full rounded-full z-20">
+    </div>
+  </section>
+
+  <!--Fitur Layanan Section-->
+  <section id="layanan" class="flex flex-col px-[28rem] py-10 items-start gap-y-4">
+    <div>
+      <h2 class="font-bold text-2xl"> Fitur dan Layanan Kami</h2>
+      <p class="text-lg opacity-80">Nikmati fitur yang kami berikan secara gratis!</p>
+    </div>
+    <div class="flex flex-row justify-content-evenly gap-x-4 w-full">
+      <div class="flex flex-col w-[24rem] rounded-xl p-4 gap-y-2 items-center bg-[#EEEEEE] hover:bg-[#FFEA20]">
+      <img src="{{ url_for('static', filename='images/live prediction.png') }}" alt="live prediction" class="w-24">
+      <h3 class="font-bold text-lg">Prediksi Langsung</h3>
+      <p class="">Kami menyediakan analisa bahasa isyarat secara realtime melalui kamera.</p>
+    </div> 
+    <div class="flex flex-row justify-center gap-x-4">
+      <div class="flex flex-col w-[24rem] rounded-xl p-4 gap-y-2 items-center bg-[#EEEEEE] hover:bg-[#FFEA20]">
+      <img src="{{ url_for('static', filename='images/hype dictionary.png') }}" alt="hype dictionary" class="w-24">
+      <h3 class="font-bold text-lg">Kamus Dasar</h3>
+      <p class="">Terdapat Kamus - kamus foto berisikan bahasa isyarat dasar.</p>
+    </div> 
+    <div class="flex flex-row justify-center gap-x-4">
+      <div class="flex flex-col w-[24rem] rounded-xl p-4 gap-y-2 items-center bg-[#EEEEEE] hover:bg-[#FFEA20]">
+      <img src="{{ url_for('static', filename='images/informasi masa kini.png') }}" alt="informasi masa kini" class="w-24">
+      <h3 class="font-bold text-lg">Informasi Terkait</h3>
+      <p class="">Seputar informasi - informasi terkait mengenai bahasa isyarat.</p>
+    </div> 
+  </section>
+
+  <!--Live Predict Section-->
+  <section id="liveprediction" class="flex flex-col px-[28rem] py-10 items-start gap-y-4">
+    <div>
+      <h2 class="font-bold text-2xl">Prediksi Langsung</h2>
+      <p class="text-lg opacity-80">Kamu bisa mencobanya secara langsung!</p>
+    </div>
+    <img class="w-full" src="{{ url_for('video_feed') }}" />
+  </section>
+
+    <!--Base Dictionary-->
+  <section id="basedictionary" class="flex flex-col py-10 gap-y-4">
+    <div class="flex flex-col px-[28rem] py-2 items-start">
+      <h2 class="font-bold text-2xl">Kamus Dasar</h2>
+      <p class="text-lg opacity-80">Coba cek kamus dasar yang kami sediakan!</p>
+    </div>
+    <div class="grid grid-cols-8 grid-flow-row gap-4 auto-rows-auto gap-4 auto-cols-aut px-[28rem] py-8 justify-evenly w-full gap-4 bg-[#0081C9]">
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/A.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf A</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/B.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf B</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/C.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf C</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/D.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf D</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/E.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf E</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/F.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf F</span>
+      </div>
+       <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/G.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf G</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/H.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf H</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/I.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf I</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/J.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf J</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/L.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf L</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/M.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf M</span>
+      </div>
+         <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/N.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf N</span>
+      </div>
+       <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/O.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf O</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/P.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf P</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/Q.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf Q</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/R.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf R</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/S.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf S</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/T.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf T</span>
+      </div>
+         <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/U.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf U</span>
+      </div>
+       <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/V.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf V</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/W.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf W</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/X.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf X</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/Y.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf Y</span>
+      </div>
+      <div class="flex flex-col w-36 p-2 rounded-xl gap-2 bg-white hover:bg-[#FFEA20]">
+        <img src="{{ url_for('static', filename='images/abjad/Z.png') }}" alt="Dictionary Image" class="rounded-xl" >
+        <span class="font-semibold text-lg text-center">Huruf Z</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Informasi Section-->
+  <section id="informasi" class="flex flex-col px-[28rem] py-10 items-start gap-y-4">
+    <div>
+      <h2 class="font-bold text-2xl">Informasi Terkait</h2>
+      <p class="text-lg opacity-80">Yuk kita cari tahu tentang bahasa isyarat!</p>
+    </div>
+    <div class="flex flex-row gap-4 p-4 rounded-xl bg-[#EEEEEE]">
+      <img src="{{ url_for('static', filename='images/small logo icon.png') }}" class="w-24" alt="Information Image">
+      <div class="flex flex-col">
+        <h2 class="font-semibold text-lg" >Hand Sign Language</h2>
+        <p class="text-md">Bahasa Isyarat adalah bahasa yang mengutamakan komunikasi manual, bahasa tubuh, dan gerak bibir, bukannya suara, untuk berkomunikasi. Orang tuli adalah kelompok utama yang menggunakan bahasa ini, biasanya dengan mengkombinasikan bentuk tangan, orientasi dan gerak tangan, lengan, dan tubuh, serta ekspresi wajah untuk mengungkapkan pikiran mereka.</p>
+      </div> 
+    </div>
+   <div class="flex flex-row gap-4 p-4 rounded-xl bg-[#EEEEEE]">
+      <img src="{{ url_for('static', filename='images/small logo icon.png') }}" class="w-24" alt="Information Image">
+      <div class="flex flex-col">
+        <h2 class="font-semibold text-lg" >BISINDO</h2>
+        <p class="text-md">Bahasa isyarat ini lah yang sering ditemukan di kalangan Teman Tuli maupun Teman Inklusi pengguna bahasa isyarat. BISINDO dibentuk oleh kelompok Tuli dan muncul secara alami berdasarkan pengamatan Teman Tuli. Maka dari itu, BISINDO memiliki variasi “dialek” di berbagai daerah. BISINDO disampaikan dengan gerakan dua tangan.</p>
+      </div> 
+    </div>
+   <div class="flex flex-row gap-4 p-4 rounded-xl bg-[#EEEEEE]">
+      <img src="{{ url_for('static', filename='images/small logo icon.png') }}" class="w-24" alt="Information Image">
+      <div class="flex flex-col">
+        <h2 class="font-semibold text-lg" >SIBI</h2>
+        <p class="text-md">Sistem isyarat ini dibentuk oleh mantan kepala SLB yang merupakan orang dengar. SIBI diadopsi dari Bahasa Isyarat Amerika. SIBI telah diresmikan pemerintah, namun lebih sering digunakan pada pembelajaran di SLB. SIBI dianggap lebih sulit karena mengandung kosakata yang baku dan rumit, serta memiliki awalan dan akhiran.  Berbeda dengan BISINDO, SIBI disampaikan dengan satu tangan. (RYR/SKS)</p>
+      </div> 
+    </div>
+  </section>
+
+  <!--Footer-->
+  <footer class="flex flex-row px-[28rem] py-10 items-start gap-x-4 bg-[#151515]">
+   <div class="flex flex-col gap-4 items-center w-80">      
+    <img src="{{ url_for('static', filename='images/small logo icon.png') }}" alt="" width="100">
+    <p class="font-bold text-white text-2xl">BISA CAKAP</p>
+   </div>
+   <div id="tentang" class="flex flex-row gap-8">
+    <div class="flex flex-col gap-2">
+        <p class="font-bold text-white text-lg">Kategori</p>
+        <ul class="flex flex-col">
+          <li class="p-2">
+            <a class="text-white text-md" href="#hero">Beranda</a>
+          </li>
+          <li class="p-2">
+            <a class="text-white text-md" href="#layanan">Fitur</a>
+          </li>
+          <li class="p-2">
+            <a class="text-white text-md" href="#informasi">Layanan</a>
+          </li>
+          <li class="p-2">
+            <a class="text-white text-md" href="#tentang">Tentang</a>
+          </li>
+        </ul>
+      </div>
+    <div class="flex flex-col gap-4 w-[50rem]">
+      <p class="font-bold text-white text-lg">Tentang Kami</p>
+      <p class="text-white text-lg">Website ini dibuat untuk keperluan Ujian Akhir Semester mata kuliah Sistem Pakar.</p>
+    </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
