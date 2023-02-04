@@ -29,13 +29,13 @@
     </a>
     <ul class="flex flex-row">
       <li class="p-2 hover:bg-[#E3F6FF]">
-        <a class="text-black text-md" href="#hero">Beranda</a>
+        <a class="text-black text-md" href="#top">Beranda</a>
       </li>
       <li class="p-2 hover:bg-[#E3F6FF]">
-        <a class="text-black text-md" href="#layanan">Fitur</a>
+        <a class="text-black text-md" href="#fitur">Fitur</a>
       </li>
       <li class="p-2 hover:bg-[#E3F6FF]">
-        <a class="text-black text-md" href="#informasi">Layanan</a>
+        <a class="text-black text-md" href="#prediksi">Prediksi</a>
       </li>
       <li class="p-2 hover:bg-[#E3F6FF]">
         <a class="text-black text-md" href="#tentang">Tentang</a>
@@ -44,11 +44,11 @@
   </nav>
 
   <!--Hero Section-->
-  <section id="hero" class="flex flex-row px-[28rem] py-10 items-center justify-between bg-[#0081C9]">
+  <section id="top" class="flex flex-row px-[28rem] py-10 items-center justify-between bg-[#0081C9]">
     <div class="flex flex-col gap-y-3 w-1/2">
       <span class="font-semibold text-white opacity-90 tracking-widest text-lg">BISA CAKAP WEBSITE</span>
       <h1 class="text-[#FFEA20] text-6xl font-bold">Membantu  Mengenal  Informasi Bahasa Isyarat</h1>
-      <p class="text-white text-lg">website ini hadir untuk membantu kamu berlatih dan lebih mengenal tentang macam-macam bahasa isyarat berdasarkan kamus Sistem Isyarat Bahasa Indonesia (SIBI).</p>
+      <p class="text-white text-lg">Website ini hadir untuk membantu kamu berlatih dan lebih mengenal tentang macam-macam bahasa isyarat berdasarkan kamus Sistem Isyarat Bahasa Indonesia (SIBI).</p>
     </div>
     <div class="flex flex-col w-1/2 items-center">
       <div class="absolute top-0 right-[44rem] w-[8rem] h-[8rem] bg-[#FFEA20] rounded-full z-10"></div>
@@ -58,38 +58,37 @@
   </section>
 
   <!--Fitur Layanan Section-->
-  <section id="layanan" class="flex flex-col px-[28rem] py-10 items-start gap-y-4">
+  <section id="fitur" class="flex flex-col px-[28rem] py-10 items-start gap-y-4">
     <div>
       <h2 class="font-bold text-2xl"> Fitur dan Layanan Kami</h2>
       <p class="text-lg opacity-80">Nikmati fitur yang kami berikan secara gratis!</p>
     </div>
-    <div class="flex flex-row justify-content-evenly gap-x-4 w-full">
+    <div class="flex items-start justify-center w-full gap-4">
       <div class="flex flex-col w-[24rem] rounded-xl p-4 gap-y-2 items-center bg-[#EEEEEE] hover:bg-[#FFEA20]">
-      <img src="{{ url_for('static', filename='images/live prediction.png') }}" alt="live prediction" class="w-24">
-      <h3 class="font-bold text-lg">Prediksi Langsung</h3>
-      <p class="">Kami menyediakan analisa bahasa isyarat secara realtime melalui kamera.</p>
-    </div> 
-    <div class="flex flex-row justify-center gap-x-4">
+        <img src="{{ url_for('static', filename='images/live prediction.png') }}" alt="live prediction" class="w-24">
+        <h3 class="font-bold text-lg">Prediksi Langsung</h3>
+        <p class="">Kami menyediakan analisa bahasa isyarat secara realtime melalui kamera.</p>
+      </div> 
       <div class="flex flex-col w-[24rem] rounded-xl p-4 gap-y-2 items-center bg-[#EEEEEE] hover:bg-[#FFEA20]">
-      <img src="{{ url_for('static', filename='images/hype dictionary.png') }}" alt="hype dictionary" class="w-24">
-      <h3 class="font-bold text-lg">Kamus Dasar</h3>
-      <p class="">Terdapat Kamus - kamus foto berisikan bahasa isyarat dasar.</p>
-    </div> 
-    <div class="flex flex-row justify-center gap-x-4">
+        <img src="{{ url_for('static', filename='images/hype dictionary.png') }}" alt="hype dictionary" class="w-24">
+        <h3 class="font-bold text-lg">Kamus Dasar</h3>
+        <p class="">Terdapat Kamus - kamus foto berisikan bahasa isyarat dasar.</p>
+      </div> 
       <div class="flex flex-col w-[24rem] rounded-xl p-4 gap-y-2 items-center bg-[#EEEEEE] hover:bg-[#FFEA20]">
-      <img src="{{ url_for('static', filename='images/informasi masa kini.png') }}" alt="informasi masa kini" class="w-24">
-      <h3 class="font-bold text-lg">Informasi Terkait</h3>
-      <p class="">Seputar informasi - informasi terkait mengenai bahasa isyarat.</p>
-    </div> 
+        <img src="{{ url_for('static', filename='images/informasi masa kini.png') }}" alt="informasi masa kini" class="w-24">
+        <h3 class="font-bold text-lg">Informasi Terkait</h3>
+        <p class="">Seputar informasi - informasi terkait mengenai bahasa isyarat.</p>
+      </div> 
+    </div>
   </section>
 
   <!--Live Predict Section-->
-  <section id="liveprediction" class="flex flex-col px-[28rem] py-10 items-start gap-y-4">
+  <section id="prediksi" class="flex flex-col px-[28rem] py-10 items-start gap-y-4">
     <div>
       <h2 class="font-bold text-2xl">Prediksi Langsung</h2>
       <p class="text-lg opacity-80">Kamu bisa mencobanya secara langsung!</p>
     </div>
-    <img class="w-full" src="{{ url_for('video_feed') }}" />
+    <img class="w-full max-w-screen-md mx-auto" src="{{ url_for('video_feed') }}" />
   </section>
 
     <!--Base Dictionary-->
@@ -233,33 +232,33 @@
 
   <!--Footer-->
   <footer class="flex flex-row px-[28rem] py-10 items-start gap-x-4 bg-[#151515]">
-   <div class="flex flex-col gap-4 items-center w-80">      
+   <div class="flex flex-col gap-4 items-center w-fit px-8">
     <img src="{{ url_for('static', filename='images/small logo icon.png') }}" alt="" width="100">
     <p class="font-bold text-white text-2xl">BISA CAKAP</p>
    </div>
-   <div id="tentang" class="flex flex-row gap-8">
+   <div id="tentang" class="flex flex-row gap-16">
     <div class="flex flex-col gap-2">
         <p class="font-bold text-white text-lg">Kategori</p>
-        <ul class="flex flex-col">
-          <li class="p-2">
+        <ul class="flex flex-col gap-1">
+          <li>
             <a class="text-white text-md" href="#hero">Beranda</a>
           </li>
-          <li class="p-2">
+          <li>
             <a class="text-white text-md" href="#layanan">Fitur</a>
           </li>
-          <li class="p-2">
-            <a class="text-white text-md" href="#informasi">Layanan</a>
+          <li>
+            <a class="text-white text-md" href="#prediksi">Prediksi</a>
           </li>
-          <li class="p-2">
+          <li>
             <a class="text-white text-md" href="#tentang">Tentang</a>
           </li>
         </ul>
-      </div>
-    <div class="flex flex-col gap-4 w-[50rem]">
+    </div>
+    <div class="flex flex-col gap-4 w-[50rem] max-w-screen-sm">
       <p class="font-bold text-white text-lg">Tentang Kami</p>
       <p class="text-white text-lg">Website ini dibuat untuk keperluan Ujian Akhir Semester mata kuliah Sistem Pakar.</p>
     </div>
-    </div>
+  </div>
   </footer>
 
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>

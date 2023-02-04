@@ -1,9 +1,11 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for, Response
 import numpy as np
 import cv2
 import keras
 from keras.preprocessing.image import ImageDataGenerator
 import tensorflow as tf
+from pygrabber.dshow_graph import FilterGraph
 
 import warnings
 from keras.callbacks import ReduceLROnPlateau
@@ -11,20 +13,37 @@ from keras.callbacks import ModelCheckpoint, EarlyStopping
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 app = Flask(__name__)
+IS_DEV = app.env == 'development'
 camera = cv2.VideoCapture(0)
 
-model = keras.models.load_model("model/mobilenetV2_model2.h5")
+# Use MobileNETV2 Adam Optimizer
+model = keras.models.load_model("model/mobilenetV2_model2.h5") 
 background = None
-accumulated_weight = 0.5
+accumulated_weight = 0.25
+
+ROI_WIDTH = 200
+ROI_HEIGHT = 200
+
 ROI_top = 100
-ROI_bottom = 300
-ROI_right = 150
-ROI_left = 350
+ROI_bottom = ROI_top + ROI_HEIGHT
+ROI_right = 25
+ROI_left = ROI_right + ROI_WIDTH
 num_frames = 0
 
 
 word_dict2 = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'J', 10: 'K', 11: 'L', 12: 'M',
               13: 'N', 14: 'O', 15: 'P', 16: 'Q', 17: 'R', 18: 'S', 19: 'T', 20: 'U', 21: 'V', 22: 'W', 23: 'X', 24: 'Y', 25: 'Z'}
+
+def get_available_cameras():
+    devices = FilterGraph().get_input_devices()
+    available_cameras = {}
+
+    for device_index, device_name in enumerate(devices):
+        available_cameras[device_index] = device_name
+    
+    return available_cameras
+print("Available Cameras: ")
+print(get_available_cameras())
 
 
 def cal_accum_avg(frame, accumulated_weight):
@@ -38,7 +57,7 @@ def cal_accum_avg(frame, accumulated_weight):
     cv2.accumulateWeighted(frame, background, accumulated_weight)
 
 
-def segment_hand(frame, threshold=25):
+def segment_hand(frame, threshold=24):
     global background
 
     diff = cv2.absdiff(background.astype("uint8"), frame)
@@ -137,4 +156,5 @@ def video_feed():
 
 
 if __name__ == '__main__':
+    os.environ['FLASK_ENV'] = 'development'
     app.run(debug=True)
