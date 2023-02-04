@@ -156,5 +156,8 @@ def video_feed():
 
 
 if __name__ == '__main__':
-    os.environ['FLASK_ENV'] = 'development'
-    app.run(debug=True)
+    if IS_DEV:
+        os.environ['FLASK_ENV'] = 'development'
+        app.run(debug=True)
+    else:
+        app.run(debug=False)
